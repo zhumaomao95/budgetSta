@@ -2,6 +2,9 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
+curDir = os.getcwd()
+print(curDir)
+outFloder = os.path.join(curDir,'OUT_FOLDER')
 def delete_files_in_folder(folder_path):
     # 获取文件夹中的所有文件和子文件夹
     for root, dirs, files in os.walk(folder_path):
@@ -15,7 +18,8 @@ def delete_files_in_folder(folder_path):
             os.rmdir(dir_path)
 
 # 调用函数删除文件夹下的所有文件
-delete_files_in_folder('./OUT_FOLDER')
+delete_files_in_folder('outFloder')
+print('delete file')
 
 # 生成随机数据
 np.random.seed(0)
@@ -35,5 +39,6 @@ plt.ylabel('Y-axis')
 
 # 显示图形
 
-outPath = './OUT_FOLDER/test1.png'
+outPath = os.path.join(outFloder,'test.png')
 plt.savefig(outPath)
+print('finish')
