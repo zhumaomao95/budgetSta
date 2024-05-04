@@ -1,4 +1,5 @@
 import os
+import datetime
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -38,7 +39,8 @@ plt.xlabel('X-axis')
 plt.ylabel('Y-axis')
 
 # 显示图形
-
-outPath = os.path.join(outFloder,'test.png')
+current_time = datetime.datetime.now()
+file_name = current_time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
+outPath = os.path.join(outFloder,file_name)
 plt.savefig(outPath)
 print('finish')
